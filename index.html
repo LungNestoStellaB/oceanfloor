@@ -191,10 +191,39 @@
         }
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px 40px;
             color: #334455;
             font-size: 0.85em;
             border-top: 1px solid rgba(50,80,110,0.15);
+        }
+        .credits {
+            margin-bottom: 30px;
+        }
+        .credit-title {
+            font-size: 0.95em;
+            color: #5599aa;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .credit-role {
+            color: #667788;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+        .credit-role strong {
+            color: #8899aa;
+            font-size: 0.9em;
+            letter-spacing: 0.03em;
+        }
+        .credit-note {
+            font-size: 0.85em;
+            color: #556677;
+            font-style: italic;
+        }
+        .footer-base {
+            margin-top: 20px;
+            color: #334455;
         }
         footer a {
             color: #5588aa;
@@ -320,7 +349,15 @@
     </div>
 
     <footer>
-        <p><a href="https://sestito.com">sestito.com</a><br>
+        <div class="credits">
+            <p class="credit-title">OceanFloor Research Team</p>
+            <p class="credit-role"><strong>Director of Research & Cataloguing</strong><br>
+            StellaB · <a href="mailto:StellaB@sestito.com">StellaB@sestito.com</a><br>
+            <span class="credit-note">For contributions, data submissions, and research collaboration</span></p>
+            <p class="credit-role"><strong>Development Partner</strong><br>
+            Ernesto A. Sestito</p>
+        </div>
+        <p class="footer-base"><a href="https://sestito.com">sestito.com</a><br>
         © 2026</p>
     </footer>
 </body>
