@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Floor Pharmacy — OceanFloor</title>
+    <meta name="description" content="Marine-derived pharmaceutical compounds. The deep ocean as an untapped source of medicine. Discovery engine connecting species to cures.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #000a14 0%, #0a1520 20%, #0d1a28 50%, #001020 80%, #000810 100%);
+            color: #c8d8e8;
+            min-height: 100vh;
+        }
+        nav {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(50,80,110,0.2);
+        }
+        nav a {
+            color: #5599aa;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.9em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        nav a:hover { color: #77bbcc; }
+        nav a.active { color: #44aa88; border-bottom: 1px solid #44aa88; padding-bottom: 4px; }
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+        .hero h1 {
+            font-size: 2.4em;
+            color: #44aa88;
+            margin-bottom: 8px;
+            letter-spacing: 0.08em;
+            font-weight: normal;
+        }
+        .hero .subtitle {
+            font-size: 1em;
+            color: #668877;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero .intro {
+            font-size: 1em;
+            color: #8899aa;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.9;
+        }
+        .hero .intro strong {
+            color: #aaccbb;
+        }
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #334455;
+            margin: 40px auto;
+        }
+        .content {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 30px 60px;
+        }
+        .stat-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 20px 10px;
+            background: rgba(0,20,30,0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(50,80,110,0.2);
+        }
+        .stat-card .big {
+            font-size: 1.6em;
+            color: #44aa88;
+            font-family: 'Courier New', monospace;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .stat-card .label {
+            font-size: 0.75em;
+            color: #667788;
+            line-height: 1.4;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        .section h2 {
+            font-size: 1.4em;
+            color: #44aa88;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+            font-weight: normal;
+        }
+        .section > p {
+            font-size: 1em;
+            line-height: 1.9;
+            color: #8899aa;
+            margin-bottom: 16px;
+        }
+        .compound-card {
+            background: rgba(0,15,25,0.7);
+            border: 1px solid rgba(50,80,110,0.25);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        .compound-card:hover {
+            border-color: rgba(68,170,136,0.4);
+        }
+        .compound-card h3 {
+            color: #77bbaa;
+            font-size: 1.1em;
+            font-weight: normal;
+            margin-bottom: 4px;
+        }
+        .compound-card .source {
+            color: #cc8844;
+            font-style: italic;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+        }
+        .compound-card .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .compound-card .tag {
+            font-size: 0.7em;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+        }
+        .tag-approved {
+            background: rgba(68,170,100,0.2);
+            color: #66cc88;
+            border: 1px solid rgba(68,170,100,0.3);
+        }
+        .tag-trial {
+            background: rgba(200,160,60,0.2);
+            color: #ccaa44;
+            border: 1px solid rgba(200,160,60,0.3);
+        }
+        .tag-research {
+            background: rgba(100,140,200,0.2);
+            color: #7799cc;
+            border: 1px solid rgba(100,140,200,0.3);
+        }
+        .compound-card p {
+            color: #778899;
+            font-size: 0.9em;
+            line-height: 1.7;
+        }
+        .compound-card .target {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(50,80,110,0.2);
+            font-size: 0.85em;
+            color: #667788;
+        }
+        .compound-card .target strong {
+            color: #88aa99;
+        }
+        .pipeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 2px;
+            margin: 30px 0;
+            background: rgba(0,20,30,0.4);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .pipeline-stage {
+            text-align: center;
+            padding: 16px 8px;
+        }
+        .pipeline-stage .stage-name {
+            font-size: 0.7em;
+            color: #556677;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+        .pipeline-stage .stage-count {
+            font-size: 1.4em;
+            font-family: 'Courier New', monospace;
+        }
+        .stage-discovery .stage-count { color: #7799cc; }
+        .stage-preclinical .stage-count { color: #ccaa44; }
+        .stage-clinical .stage-count { color: #cc8844; }
+        .stage-approved .stage-count { color: #66cc88; }
+        .vision-box {
+            background: rgba(0,30,20,0.3);
+            border: 1px solid rgba(68,170,136,0.2);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .vision-box h3 {
+            color: #44aa88;
+            font-weight: normal;
+            font-size: 1.1em;
+            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+        }
+        .vision-box p {
+            color: #8899aa;
+            font-size: 0.95em;
+            line-height: 1.9;
+            max-width: 580px;
+            margin: 0 auto;
+        }
+        .vision-box em {
+            color: #aaccbb;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #334455;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(50,80,110,0.15);
+        }
+        footer a { color: #5588aa; text-decoration: none; }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8em; }
+            .stat-bar { grid-template-columns: 1fr 1fr; }
+            .pipeline { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="pharmacy.html" class="active">Pharmacy</a>
+    </nav>
+
+    <div class="hero">
+        <h1>Ocean Floor Pharmacy</h1>
+        <p class="subtitle">Medicine from the Deep</p>
+        <div class="intro">
+            The ocean floor is the largest <strong>untapped pharmaceutical source</strong> on Earth.
+            Organisms that survive extreme pressure, total darkness, and temperatures from 1°C to 400°C
+            have evolved chemical defences that terrestrial biology has never seen.<br><br>
+            The compounds they produce are already saving lives.
+            Most haven't been discovered yet.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+
+        <div class="stat-bar">
+            <div class="stat-card">
+                <span class="big">18</span>
+                <span class="label">marine-derived drugs<br>FDA approved</span>
+            </div>
+            <div class="stat-card">
+                <span class="big">36,000+</span>
+                <span class="label">marine natural<br>products discovered</span>
+            </div>
+            <div class="stat-card">
+                <span class="big">~$7B</span>
+                <span class="label">marine pharma<br>market (2025)</span>
+            </div>
+            <div class="stat-card">
+                <span class="big">80%</span>
+                <span class="label">of ocean<br>unexplored</span>
+            </div>
+        </div>
+
+        <!-- Drug Discovery Pipeline -->
+        <div class="section">
+            <h2>The Pipeline</h2>
+            <p>From ocean floor to medicine cabinet. Every approved drug began as a curiosity — a sponge that didn't get infected, a snail whose venom paralysed fish, a tunicate that glowed in the dark.</p>
+
+            <div class="pipeline">
+                <div class="pipeline-stage stage-discovery">
+                    <div class="stage-name">Discovery</div>
+                    <div class="stage-count">36,000+</div>
+                </div>
+                <div class="pipeline-stage stage-preclinical">
+                    <div class="stage-name">Preclinical</div>
+                    <div class="stage-count">~200</div>
+                </div>
+                <div class="pipeline-stage stage-clinical">
+                    <div class="stage-name">Clinical Trials</div>
+                    <div class="stage-count">~30</div>
+                </div>
+                <div class="pipeline-stage stage-approved">
+                    <div class="stage-name">Approved</div>
+                    <div class="stage-count">18</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Approved Compounds -->
+        <div class="section">
+            <h2>Compounds from the Deep</h2>
+            <p>Selected marine-derived pharmaceuticals — from the ocean floor to clinical use.</p>
+
+            <div class="compound-card">
+                <h3>Ziconotide (Prialt®)</h3>
+                <div class="source">Source: Conus magus — Cone Snail</div>
+                <div class="tags">
+                    <span class="tag tag-approved">FDA APPROVED 2004</span>
+                </div>
+                <p>Derived from the venom of a marine cone snail. A synthetic peptide that blocks pain signals at the spinal cord. Used for severe chronic pain when opioids fail. 1,000× more potent than morphine. Non-addictive.</p>
+                <div class="target"><strong>Treats:</strong> Severe chronic pain · Neuropathic pain · Cancer pain<br><strong>Depth origin:</strong> Shallow reef (cone snail), but chemistry applicable to deep-sea venomous species</div>
+            </div>
+
+            <div class="compound-card">
+                <h3>Cytarabine (Ara-C)</h3>
+                <div class="source">Source: Tectitethya crypta — Caribbean Sponge</div>
+                <div class="tags">
+                    <span class="tag tag-approved">FDA APPROVED 1969</span>
+                </div>
+                <p>The first marine-derived anticancer drug. Isolated from a Caribbean sponge in the 1950s. Still a frontline treatment for leukaemia over 60 years later. Changed oncology forever.</p>
+                <div class="target"><strong>Treats:</strong> Acute myeloid leukaemia · Non-Hodgkin lymphoma<br><strong>Significance:</strong> Proved the ocean could produce viable pharmaceuticals</div>
+            </div>
+
+            <div class="compound-card">
+                <h3>Eribulin (Halaven®)</h3>
+                <div class="source">Source: Halichondria okadai — Black Sponge</div>
+                <div class="tags">
+                    <span class="tag tag-approved">FDA APPROVED 2010</span>
+                </div>
+                <p>Synthetic analogue of halichondrin B, found in a Japanese sea sponge. Required 30+ years of chemistry to synthesise. Now used to treat metastatic breast cancer. One of the most complex molecules ever manufactured.</p>
+                <div class="target"><strong>Treats:</strong> Metastatic breast cancer · Liposarcoma<br><strong>Depth origin:</strong> Shallow to moderate depth sponge beds</div>
+            </div>
+
+            <div class="compound-card">
+                <h3>Trabectedin (Yondelis®)</h3>
+                <div class="source">Source: Ecteinascidia turbinata — Sea Squirt (Tunicate)</div>
+                <div class="tags">
+                    <span class="tag tag-approved">EU APPROVED 2007</span>
+                    <span class="tag tag-approved">FDA APPROVED 2015</span>
+                </div>
+                <p>From a humble sea squirt — a sessile organism that filters seawater. Produces a compound that binds to DNA and disrupts cancer cell division. The animal produces it in trace amounts — took decades to develop synthetic production.</p>
+                <div class="target"><strong>Treats:</strong> Soft tissue sarcoma · Ovarian cancer<br><strong>Question:</strong> What are deep-sea tunicates producing that we haven't sampled yet?</div>
+            </div>
+
+            <div class="compound-card">
+                <h3>Omega-3 Fatty Acids (Various)</h3>
+                <div class="source">Source: Deep-sea fish oils · Microalgae</div>
+                <div class="tags">
+                    <span class="tag tag-approved">APPROVED / OTC</span>
+                </div>
+                <p>The most widely consumed marine-derived pharmaceutical product globally. Originally sourced from deep-sea fish, now increasingly from cultivated microalgae. Cardiovascular protection, anti-inflammatory, neuroprotective.</p>
+                <div class="target"><strong>Treats:</strong> Cardiovascular disease · Inflammation · Cognitive decline<br><strong>Market:</strong> Multi-billion dollar global market</div>
+            </div>
+
+            <div class="compound-card">
+                <h3>Vent Bacteria Enzymes</h3>
+                <div class="source">Source: Thermus aquaticus & deep-vent extremophiles</div>
+                <div class="tags">
+                    <span class="tag tag-research">ACTIVE RESEARCH</span>
+                </div>
+                <p>Hydrothermal vent bacteria produce heat-stable enzymes that function at extreme temperatures. Taq polymerase — from a hot spring bacterium — enabled PCR testing and the entire COVID diagnostic industry. Deep-vent variants could be the next revolution.</p>
+                <div class="target"><strong>Applications:</strong> Diagnostic enzymes · Industrial bioprocessing · Gene therapy tools<br><strong>Depth origin:</strong> 2,000-4,000m hydrothermal vents</div>
+            </div>
+
+            <div class="compound-card">
+                <h3>Antarctic Sponge Compounds</h3>
+                <div class="source">Source: Various — Deep Antarctic shelf sponges</div>
+                <div class="tags">
+                    <span class="tag tag-trial">CLINICAL TRIALS</span>
+                </div>
+                <p>Antarctic sponges produce unique antifreeze proteins and bioactive metabolites evolved over millions of years of isolation. Multiple compounds in development for anti-tumour, anti-microbial, and anti-inflammatory applications.</p>
+                <div class="target"><strong>Potential:</strong> Antibiotic-resistant infections · Novel anti-cancer pathways<br><strong>Challenge:</strong> Sampling requires ice-breaking research vessels and deep ROVs</div>
+            </div>
+
+            <div class="compound-card">
+                <h3>Deep-Sea Shark Squalamine</h3>
+                <div class="source">Source: Squalus acanthias — Dogfish Shark</div>
+                <div class="tags">
+                    <span class="tag tag-trial">CLINICAL TRIALS</span>
+                </div>
+                <p>An aminosterol first isolated from the dogfish shark liver. Exhibits broad-spectrum antimicrobial activity AND anti-angiogenic properties (blocks blood vessel growth in tumours). Being studied for both cancer and eye disease.</p>
+                <div class="target"><strong>Potential:</strong> Anti-cancer · Macular degeneration · Antimicrobial<br><strong>Note:</strong> Synthetic production now possible — no sharks harmed</div>
+            </div>
+        </div>
+
+        <!-- The Vision -->
+        <div class="vision-box">
+            <h3>The Discovery Engine</h3>
+            <p>
+                <em>Species → Compounds → Diseases → Cures</em><br><br>
+                36,000 marine natural products have been identified.<br>
+                80% of the ocean hasn't been sampled.<br>
+                The next antibiotic, the next cancer treatment,<br>
+                the next pain medication without addiction —<br>
+                it may already exist. At the bottom of the ocean.<br>
+                Waiting to be found.<br><br>
+                <em>We catalogue. We connect. We illuminate.</em>
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><a href="index.html">OceanFloor</a> · <a href="gallery.html">Gallery</a> · <a href="pharmacy.html">Pharmacy</a><br>
+        <a href="https://sestito.com">sestito.com</a> · © 2026<br><br>
+        <em style="color: #445566;">Research compiled by StellaB · <a href="mailto:StellaB@sestito.com">StellaB@sestito.com</a></em></p>
+    </footer>
+</body>
+</html>
