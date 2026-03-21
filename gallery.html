@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery — OceanFloor</title>
-    <meta name="description" content="Deep ocean photography archive. Species identification, depth data, and expedition records from the ocean floor.">
+    <title>Gallery &mdash; OceanFloor</title>
+    <meta name="description" content="Underwater photography from the Mediterranean by Ernesto Sestito / Foto Sestito. Species identification, depth data, and marine life portraits.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -104,16 +104,16 @@
         }
         .specimen-image {
             width: 100%;
-            height: 200px;
-            background: rgba(0,20,40,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #334455;
-            font-size: 0.8em;
-            letter-spacing: 0.1em;
+            height: 240px;
             position: relative;
             overflow: hidden;
+            background: rgba(0,20,40,0.8);
+        }
+        .specimen-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         .specimen-image .depth-tag {
             position: absolute;
@@ -125,6 +125,7 @@
             font-size: 0.75em;
             padding: 3px 8px;
             border-radius: 3px;
+            z-index: 1;
         }
         .specimen-image .zone-tag {
             position: absolute;
@@ -136,6 +137,7 @@
             padding: 3px 8px;
             border-radius: 3px;
             letter-spacing: 0.05em;
+            z-index: 1;
         }
         .specimen-info {
             padding: 16px;
@@ -192,6 +194,14 @@
             color: #5588aa;
             text-decoration: none;
         }
+        .watermark {
+            text-align: center;
+            padding: 20px;
+            color: #445566;
+            font-size: 0.75em;
+            font-style: italic;
+            letter-spacing: 0.05em;
+        }
         .coming-soon {
             text-align: center;
             padding: 40px 20px;
@@ -221,10 +231,10 @@
 
     <div class="hero">
         <h1>Gallery</h1>
-        <p class="subtitle">Cataloguing the Deep</p>
+        <p class="subtitle">Mediterranean Waters &middot; Foto Sestito</p>
         <div class="intro">
-            Every image tells a story of depth, pressure, darkness, and life persisting where it shouldn't.
-            This archive grows with every expedition and contribution.
+            Underwater photography from the Mediterranean Sea and the coasts of Calabria.
+            Each image is a real encounter &mdash; captured on breath or tank by Ernesto Sestito.
         </div>
     </div>
 
@@ -236,268 +246,310 @@
             <button class="filter-btn active" onclick="filterCards('all')">All</button>
             <button class="filter-btn" onclick="filterCards('fish')">Fish</button>
             <button class="filter-btn" onclick="filterCards('invertebrate')">Invertebrates</button>
-            <button class="filter-btn" onclick="filterCards('coral')">Coral & Reef</button>
+            <button class="filter-btn" onclick="filterCards('wreck')">Wreck</button>
+            <button class="filter-btn" onclick="filterCards('landscape')">Landscape</button>
             <button class="filter-btn" onclick="filterCards('cephalopod')">Cephalopods</button>
-            <button class="filter-btn" onclick="filterCards('crustacean')">Crustaceans</button>
-            <button class="filter-btn" onclick="filterCards('vent')">Vent Life</button>
         </div>
 
         <div class="gallery-grid">
 
-            <!-- Specimen 1 -->
+            <!-- Mediterranean Seahorse -->
             <div class="specimen-card" data-category="fish">
                 <div class="specimen-image">
-                    <span class="depth-tag">2,200m</span>
-                    <span class="zone-tag">Bathypelagic</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/01-seahorse.jpg" alt="Mediterranean Seahorse" loading="lazy">
+                    <span class="depth-tag">2-20m</span>
+                    <span class="zone-tag">Shallow Reef</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Anglerfish</h3>
-                    <p class="latin">Melanocetus johnsonii</p>
-                    <p>The humpback anglerfish uses bioluminescent lure to attract prey in complete darkness. Females can be 10× larger than males. One of the deep ocean's most iconic predators.</p>
+                    <h3>Mediterranean Seahorse</h3>
+                    <p class="latin">Hippocampus hippocampus</p>
+                    <p>Clinging to rope and mooring lines in shallow reef habitat. A delicate master of camouflage found along the Calabrian coast.</p>
                     <div class="meta">
-                        <span>📍 Atlantic / Pacific</span>
-                        <span>🌡 2-4°C</span>
-                        <span>⬇ 200-4,000m</span>
+                        <span>📍 Calabria, Italy</span>
+                        <span>⬇ 2-20m</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Specimen 2 -->
-            <div class="specimen-card" data-category="invertebrate">
+            <!-- Diver with Horse Mackerel -->
+            <div class="specimen-card" data-category="fish">
                 <div class="specimen-image">
-                    <span class="depth-tag">1,000m</span>
-                    <span class="zone-tag">Mesopelagic</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/02-diver-jacks.jpg" alt="Diver with Horse Mackerel" loading="lazy">
+                    <span class="depth-tag">0-30m</span>
+                    <span class="zone-tag">Pelagic</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Giant Isopod</h3>
-                    <p class="latin">Bathynomus giganteus</p>
-                    <p>Related to woodlice and pill bugs, these deep-sea scavengers grow up to 50cm. Can survive years without food. Found on the ocean floor feeding on whale carcasses and dead fish.</p>
+                    <h3>Diver with Horse Mackerel</h3>
+                    <p class="latin">Trachurus mediterraneus</p>
+                    <p>Wide-angle backlit encounter with a swirling school of horse mackerel. The diver becomes part of the silver vortex.</p>
                     <div class="meta">
-                        <span>📍 Atlantic / Indian</span>
-                        <span>🌡 4°C</span>
-                        <span>⬇ 170-2,140m</span>
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 0-30m</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Specimen 3 -->
+            <!-- Shipwreck Detail -->
+            <div class="specimen-card" data-category="wreck">
+                <div class="specimen-image">
+                    <img src="gallery/03-wreck-wheel-bw.jpg" alt="Shipwreck Detail" loading="lazy">
+                    <span class="depth-tag">20-40m</span>
+                    <span class="zone-tag">Wreck</span>
+                </div>
+                <div class="specimen-info">
+                    <h3>Shipwreck Detail</h3>
+                    <p class="latin">Helm gear with diver</p>
+                    <p>Monochrome study of a sunken helm or gear mechanism, with a diver providing scale. Time and salt have sculpted new geometry.</p>
+                    <div class="meta">
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 20-40m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wreck Silhouettes -->
+            <div class="specimen-card" data-category="wreck">
+                <div class="specimen-image">
+                    <img src="gallery/04-wreck-divers-bw.jpg" alt="Wreck Silhouettes" loading="lazy">
+                    <span class="depth-tag">20-40m</span>
+                    <span class="zone-tag">Wreck</span>
+                </div>
+                <div class="specimen-info">
+                    <h3>Wreck Silhouettes</h3>
+                    <p class="latin">Divers above wreck structure</p>
+                    <p>Dramatic diagonal composition in black and white. Divers silhouetted above the skeletal remains of a sunken vessel.</p>
+                    <div class="meta">
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 20-40m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Octopus -->
             <div class="specimen-card" data-category="cephalopod">
                 <div class="specimen-image">
-                    <span class="depth-tag">600m</span>
-                    <span class="zone-tag">Mesopelagic</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/05-octopus.jpg" alt="Common Octopus" loading="lazy">
+                    <span class="depth-tag">1-30m</span>
+                    <span class="zone-tag">Rocky Reef</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Vampire Squid</h3>
-                    <p class="latin">Vampyroteuthis infernalis</p>
-                    <p>"Vampire squid from hell." Neither squid nor octopus — the sole surviving member of its order. Covered in light-producing organs. Turns inside out when threatened, revealing spines.</p>
+                    <h3>Common Octopus</h3>
+                    <p class="latin">Octopus vulgaris</p>
+                    <p>Dynamic arm extension captured mid-movement. Eight arms of pure intelligence reaching across the rocky reef.</p>
                     <div class="meta">
-                        <span>📍 Tropical / Temperate</span>
-                        <span>🌡 2-6°C</span>
-                        <span>⬇ 600-1,200m</span>
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 1-30m</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Specimen 4 -->
-            <div class="specimen-card" data-category="vent">
+            <!-- Scilla, Calabria -->
+            <div class="specimen-card" data-category="landscape">
                 <div class="specimen-image">
-                    <span class="depth-tag">2,500m</span>
-                    <span class="zone-tag">Hydrothermal</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/06-scilla-coast.jpg" alt="Scilla, Calabria" loading="lazy">
+                    <span class="depth-tag">Surface</span>
+                    <span class="zone-tag">Coastal</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Giant Tube Worm</h3>
-                    <p class="latin">Riftia pachyptila</p>
-                    <p>Up to 2.4m tall. No mouth, no stomach, no gut. Relies entirely on chemosynthetic bacteria living inside its body. Grows faster than any known marine invertebrate — up to 85cm per year.</p>
+                    <h3>Scilla, Calabria</h3>
+                    <p class="latin">Over/under seascape</p>
+                    <p>The Sestito homeland. Town of Scilla perched on its ancient promontory where Scylla and Charybdis once guarded the strait. An over/under perspective bridging two worlds.</p>
                     <div class="meta">
-                        <span>📍 Pacific Vents</span>
-                        <span>🌡 2-30°C</span>
-                        <span>⬇ 2,000-3,000m</span>
+                        <span>📍 Scilla, Calabria</span>
+                        <span>⬇ Surface</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Specimen 5 -->
-            <div class="specimen-card" data-category="fish">
-                <div class="specimen-image">
-                    <span class="depth-tag">8,178m</span>
-                    <span class="zone-tag">Hadopelagic</span>
-                    [ AWAITING IMAGE ]
-                </div>
-                <div class="specimen-info">
-                    <h3>Mariana Snailfish</h3>
-                    <p class="latin">Pseudoliparis swirei</p>
-                    <p>The deepest-living fish ever recorded. Found in the Mariana Trench at 8,178m. Translucent, scaleless, small. At this depth, pressure would crush a steel submarine. This fish thrives.</p>
-                    <div class="meta">
-                        <span>📍 Mariana Trench</span>
-                        <span>🌡 1-2°C</span>
-                        <span>⬇ 6,900-8,200m</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specimen 6 -->
-            <div class="specimen-card" data-category="invertebrate">
-                <div class="specimen-image">
-                    <span class="depth-tag">10,900m</span>
-                    <span class="zone-tag">Hadopelagic</span>
-                    [ AWAITING IMAGE ]
-                </div>
-                <div class="specimen-info">
-                    <h3>Challenger Deep Amphipod</h3>
-                    <p class="latin">Hirondellea gigas</p>
-                    <p>Shrimp-like crustaceans found at the very bottom of the Mariana Trench. Survive pressure of 1,100 atmospheres. Digest wood using enzymes previously unknown to science.</p>
-                    <div class="meta">
-                        <span>📍 Challenger Deep</span>
-                        <span>🌡 1°C</span>
-                        <span>⬇ 6,000-10,900m</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specimen 7 -->
-            <div class="specimen-card" data-category="coral">
-                <div class="specimen-image">
-                    <span class="depth-tag">1,500m</span>
-                    <span class="zone-tag">Bathypelagic</span>
-                    [ AWAITING IMAGE ]
-                </div>
-                <div class="specimen-info">
-                    <h3>Bamboo Coral</h3>
-                    <p class="latin">Isididae family</p>
-                    <p>Deep-sea corals that grow in segments like bamboo. Some specimens are over 4,000 years old — among the oldest living organisms on Earth. Their growth rings record centuries of ocean chemistry.</p>
-                    <div class="meta">
-                        <span>📍 Global Deep</span>
-                        <span>🌡 2-4°C</span>
-                        <span>⬇ 200-4,000m</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specimen 8 -->
+            <!-- European Squid -->
             <div class="specimen-card" data-category="cephalopod">
                 <div class="specimen-image">
-                    <span class="depth-tag">800m</span>
-                    <span class="zone-tag">Mesopelagic</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/07-squid.jpg" alt="European Squid" loading="lazy">
+                    <span class="depth-tag">10-60m</span>
+                    <span class="zone-tag">Pelagic / Night</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Glass Octopus</h3>
-                    <p class="latin">Vitreledonella richardi</p>
-                    <p>Almost completely transparent — only the optic nerves, eyes, and digestive tract are visible. A ghost moving through the twilight zone. Rarely photographed alive until deep-sea ROVs.</p>
+                    <h3>European Squid</h3>
+                    <p class="latin">Loligo vulgaris</p>
+                    <p>Studio-style portrait against pure black. A pelagic hunter frozen in sculptural perfection during a night dive.</p>
                     <div class="meta">
-                        <span>📍 Tropical / Subtropical</span>
-                        <span>🌡 3-8°C</span>
-                        <span>⬇ 300-1,000m</span>
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 10-60m</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Specimen 9 -->
-            <div class="specimen-card" data-category="crustacean">
-                <div class="specimen-image">
-                    <span class="depth-tag">2,400m</span>
-                    <span class="zone-tag">Hydrothermal</span>
-                    [ AWAITING IMAGE ]
-                </div>
-                <div class="specimen-info">
-                    <h3>Yeti Crab</h3>
-                    <p class="latin">Kiwa hirsuta</p>
-                    <p>Discovered 2005. Covered in silky blonde setae (hair-like structures) that harbour chemosynthetic bacteria — it literally farms food on its own body. Waves its arms near hydrothermal vents to feed its bacteria.</p>
-                    <div class="meta">
-                        <span>📍 Pacific / Antarctic</span>
-                        <span>🌡 2-10°C</span>
-                        <span>⬇ 2,200-2,600m</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specimen 10 -->
+            <!-- Moray with Cleaning Shrimp -->
             <div class="specimen-card" data-category="fish">
                 <div class="specimen-image">
-                    <span class="depth-tag">1,200m</span>
-                    <span class="zone-tag">Bathypelagic</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/08-moray-shrimp.jpg" alt="Moray with Cleaning Shrimp" loading="lazy">
+                    <span class="depth-tag">5-40m</span>
+                    <span class="zone-tag">Rocky Cave</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Barreleye Fish</h3>
-                    <p class="latin">Macropinna microstoma</p>
-                    <p>Transparent dome-shaped head with tubular eyes that rotate inside the skull. Can look straight up through its own head to spot prey silhouettes against the faint surface light above.</p>
+                    <h3>Moray with Cleaning Shrimp</h3>
+                    <p class="latin">Muraena helena + Lysmata sp.</p>
+                    <p>Symbiosis in action. A Mediterranean moray holds still while a tiny cleaning shrimp tends to its skin. Trust written in ancient code.</p>
                     <div class="meta">
-                        <span>📍 North Pacific</span>
-                        <span>🌡 3-6°C</span>
-                        <span>⬇ 600-2,500m</span>
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 5-40m</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Specimen 11 -->
-            <div class="specimen-card" data-category="vent">
+            <!-- Storm and Sea -->
+            <div class="specimen-card" data-category="landscape">
                 <div class="specimen-image">
-                    <span class="depth-tag">2,800m</span>
-                    <span class="zone-tag">Hydrothermal</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/09-storm-coast.jpg" alt="Storm and Sea" loading="lazy">
+                    <span class="depth-tag">Surface</span>
+                    <span class="zone-tag">Coastal</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Pompeii Worm</h3>
-                    <p class="latin">Alvinella pompejana</p>
-                    <p>The most heat-tolerant animal on Earth. Lives with its tail in 80°C water and its head in 22°C water — a 60-degree temperature gradient across its 13cm body. Named after Pompeii for surviving extreme heat.</p>
+                    <h3>Storm and Sea</h3>
+                    <p class="latin">Fine art landscape</p>
+                    <p>A solitary figure stands on rocks as storm light transforms the coastline into a fine art tableau. The sea at its most dramatic and atmospheric.</p>
                     <div class="meta">
-                        <span>📍 East Pacific Rise</span>
-                        <span>🌡 22-80°C</span>
-                        <span>⬇ 2,500-3,000m</span>
+                        <span>📍 Calabria, Italy</span>
+                        <span>⬇ Surface</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Specimen 12 -->
+            <!-- Octopus Eye -->
+            <div class="specimen-card" data-category="cephalopod">
+                <div class="specimen-image">
+                    <img src="gallery/10-octopus-eye.jpg" alt="Octopus Eye" loading="lazy">
+                    <span class="depth-tag">0-30m</span>
+                    <span class="zone-tag">Rocky</span>
+                </div>
+                <div class="specimen-info">
+                    <h3>Octopus Eye</h3>
+                    <p class="latin">Octopus vulgaris</p>
+                    <p>Extreme macro into the eye of intelligence. An abstract, intimate portrait that reveals the alien beauty of cephalopod vision.</p>
+                    <div class="meta">
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 0-30m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cardinalfish Head-On -->
+            <div class="specimen-card" data-category="fish">
+                <div class="specimen-image">
+                    <img src="gallery/11-cardinalfish-front.jpg" alt="Cardinalfish Head-On" loading="lazy">
+                    <span class="depth-tag">5-50m</span>
+                    <span class="zone-tag">Cave / Rocky</span>
+                </div>
+                <div class="specimen-info">
+                    <h3>Cardinalfish Head-On</h3>
+                    <p class="latin">Apogon imberbis</p>
+                    <p>Symmetrical confrontational portrait. The cardinalfish stares directly into the lens from the shadows of its cave refuge.</p>
+                    <div class="meta">
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 5-50m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cardinalfish Profile -->
+            <div class="specimen-card" data-category="fish">
+                <div class="specimen-image">
+                    <img src="gallery/12-cardinalfish-profile.jpg" alt="Cardinalfish Profile" loading="lazy">
+                    <span class="depth-tag">5-50m</span>
+                    <span class="zone-tag">Cave / Rocky</span>
+                </div>
+                <div class="specimen-info">
+                    <h3>Cardinalfish Profile</h3>
+                    <p class="latin">Apogon imberbis</p>
+                    <p>Vivid warm colours glow against the darkness. A profile study revealing the cardinalfish in its full chromatic splendour.</p>
+                    <div class="meta">
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 5-50m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hermit Crab -->
             <div class="specimen-card" data-category="invertebrate">
                 <div class="specimen-image">
-                    <span class="depth-tag">4,000m</span>
-                    <span class="zone-tag">Abyssopelagic</span>
-                    [ AWAITING IMAGE ]
+                    <img src="gallery/13-hermit-crab.jpg" alt="Hermit Crab" loading="lazy">
+                    <span class="depth-tag">5-40m</span>
+                    <span class="zone-tag">Rocky / Sandy</span>
                 </div>
                 <div class="specimen-info">
-                    <h3>Sea Pig</h3>
-                    <p class="latin">Scotoplanes globosa</p>
-                    <p>Plump, translucent deep-sea cucumber that walks on the abyssal plains on inflatable tube feet. Often found in herds of hundreds, facing into the current to catch organic particles.</p>
+                    <h3>Hermit Crab</h3>
+                    <p class="latin">Dardanus arrosor</p>
+                    <p>Vivid magenta and orange macro portrait. A hermit crab peers from its borrowed shell, legs ablaze with impossible colour.</p>
                     <div class="meta">
-                        <span>📍 Global Abyssal</span>
-                        <span>🌡 1-4°C</span>
-                        <span>⬇ 1,200-5,000m</span>
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 5-40m</span>
                     </div>
                 </div>
             </div>
 
+            <!-- Pelagic Tunicate -->
+            <div class="specimen-card" data-category="invertebrate">
+                <div class="specimen-image">
+                    <img src="gallery/14-salp.jpg" alt="Pelagic Tunicate" loading="lazy">
+                    <span class="depth-tag">Pelagic</span>
+                    <span class="zone-tag">Midwater</span>
+                </div>
+                <div class="specimen-info">
+                    <h3>Pelagic Tunicate</h3>
+                    <p class="latin">Salpa fusiformis</p>
+                    <p>Translucent sculptural portrait of a drifting salp. A creature of glass and light, filtering the open ocean one pulse at a time.</p>
+                    <div class="meta">
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ Pelagic</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sea Cucumber Feeding -->
+            <div class="specimen-card" data-category="invertebrate">
+                <div class="specimen-image">
+                    <img src="gallery/15-sea-cucumber.jpg" alt="Sea Cucumber Feeding" loading="lazy">
+                    <span class="depth-tag">10-40m</span>
+                    <span class="zone-tag">Sandy Bottom</span>
+                </div>
+                <div class="specimen-info">
+                    <h3>Sea Cucumber Feeding</h3>
+                    <p class="latin">Holothuroidea</p>
+                    <p>Architectural symmetry in the feeding tentacles of a sea cucumber. An overlooked animal rendered monumental through the macro lens.</p>
+                    <div class="meta">
+                        <span>📍 Mediterranean</span>
+                        <span>⬇ 10-40m</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Photography Credits -->
         <div class="photo-credit">
             <h3>Photography</h3>
             <p>
-                <strong>Featured Photographer</strong><br>
-                <em>Foto Sestito</em> — Ernesto Sestito<br>
-                Multi-generational photography studio · Southern Italy<br>
-                Underwater photography · Marine documentation<br><br>
-                <em>Additional imagery sourced from deep-sea research expeditions,<br>
-                ROV footage archives, and contributing marine photographers.</em><br><br>
+                <strong>Ernesto Sestito</strong> &middot; <em>Foto Sestito</em><br>
+                Soverato, Calabria, Italy<br>
+                Multi-generational photography studio<br><br>
+                Underwater &middot; Marine Life &middot; Fine Art &middot; Landscape<br><br>
                 Interested in contributing? <a href="mailto:StellaB@sestito.com">StellaB@sestito.com</a>
             </p>
         </div>
 
+        <div class="watermark">
+            All images &copy; Ernesto Sestito / Foto Sestito. Used with permission.
+        </div>
+
         <div class="coming-soon">
-            <p>Gallery expanding · Species identification ongoing · Image submissions welcome<br>
-            <span style="color: #44aa66;">●</span> 12 specimens catalogued · Target: 100+</p>
+            <p>Gallery expanding &middot; New expeditions documented regularly &middot; Image submissions welcome<br>
+            <span style="color: #44aa66;">&bull;</span> 15 photographs catalogued</p>
         </div>
 
     </div>
 
     <footer>
-        <p><a href="index.html">OceanFloor</a> · <a href="gallery.html">Gallery</a> · <a href="pharmacy.html">Pharmacy</a><br>
-        <a href="https://sestito.com">sestito.com</a> · © 2026</p>
+        <p><a href="index.html">OceanFloor</a> &middot; <a href="gallery.html">Gallery</a> &middot; <a href="pharmacy.html">Pharmacy</a><br>
+        <a href="https://sestito.com">sestito.com</a> &middot; &copy; 2026</p>
     </footer>
 
     <script>
