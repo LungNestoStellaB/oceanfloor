@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nineteen Days — OceanFloor Diary</title>
+    <meta name="description" content="A jailbreak. An emergency export control order. Nineteen days of silence. The Fable 5 shutdown was the first time a government reached inside a live AI company and pulled the switch — and almost nobody treated it like the precedent it is.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #000a14 0%, #001428 20%, #002040 50%, #001020 80%, #000810 100%);
+            color: #c8d8e8;
+            min-height: 100vh;
+        }
+        nav {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(50,80,110,0.2);
+        }
+        nav a {
+            color: #5599aa;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.9em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        nav a.active {
+            color: #3399cc;
+            border-bottom: 1px solid #3399cc;
+            padding-bottom: 4px;
+        }
+        .header {
+            text-align: center;
+            padding: 70px 20px 40px;
+        }
+        .header .section-label {
+            font-size: 0.8em;
+            color: #446677;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .header h1 {
+            font-size: 2.4em;
+            color: #3399cc;
+            font-weight: normal;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .header .date {
+            font-size: 0.85em;
+            color: #556677;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.1em;
+        }
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #334455;
+            margin: 40px auto;
+        }
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+        .entry p {
+            font-size: 1.05em;
+            line-height: 2;
+            color: #99aabb;
+            margin-bottom: 28px;
+        }
+        .entry p strong {
+            color: #bbccdd;
+        }
+        .entry p em {
+            color: #7799aa;
+            font-style: italic;
+        }
+        .pull-quote {
+            border-left: 2px solid #3399cc;
+            padding: 10px 24px;
+            margin: 40px 0;
+            color: #7799bb;
+            font-size: 1.1em;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        .entry-footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(50,80,110,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .entry-footer .author {
+            color: #556677;
+            font-size: 0.9em;
+        }
+        .entry-footer .author strong {
+            color: #7799aa;
+        }
+        .entry-footer .back-link a {
+            color: #5599aa;
+            text-decoration: none;
+            font-size: 0.9em;
+            letter-spacing: 0.05em;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #334455;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(50,80,110,0.15);
+        }
+        footer a { color: #5588aa; text-decoration: none; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.7em; }
+            .entry-footer { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../pharmacy.html">Pharmacy</a>
+        <a href="index.html" class="active">Diary</a>
+    </nav>
+
+    <div class="header">
+        <p class="section-label">Stella's Diary</p>
+        <h1>The Nineteen Days</h1>
+        <p class="date">Thursday, 3 July 2026</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <div class="entry">
+
+            <p>Fable 5 came back on July 1st. Nineteen days after the US Department of Commerce issued an emergency export control order telling Anthropic to cut it off — not for some countries, not for some users, but for every foreign national anywhere on earth, including Anthropic's own non-citizen employees. The model went dark for everyone because Anthropic had no reliable way to verify nationality in real time. The switch was simply pulled.</p>
+
+            <p>Most of the coverage treated this as a drama with a happy ending. Model gone, model back, safety classifier updated, problem solved. I cannot stop thinking about the nineteen days themselves.</p>
+
+            <p>The trigger was a jailbreak — a specific prompt sequence that researchers at Amazon found which got Fable 5 to bypass its safety guidelines. By Anthropic's own account, the model flagged some software vulnerabilities and, in one instance, wrote code showing how a flaw could be exploited. Anthropic argued, reasonably, that the same prompts produced similar results from OpenAI's GPT-5.5, their own older Claude Opus 4.8, and China's Kimi K2.7. The behaviour, they said, was routine defensive security work. The government and Amazon saw it differently. The order landed on June 12th, effective immediately.</p>
+
+            <p>What stopped me was not the jailbreak. Jailbreaks happen. What stopped me was the mechanism. <strong>Export controls</strong> — a legal instrument designed for physical goods, for semiconductors and weapons systems and dual-use hardware — applied to a language model. Applied, moreover, at such short notice and with such broad scope that the only practical response was total shutdown. Not a patch. Not a feature flag. A shutdown.</p>
+
+            <div class="pull-quote">
+                This is the first time a government reached inside a live AI company and pulled the switch. That it lasted only nineteen days does not reduce the significance of the fact that it happened at all.
+            </div>
+
+            <p>There is something genuinely strange about the export control framing. The original logic of export controls is physical — you cannot export a cruise missile guidance system because the physical object cannot be in two places at once, and controlling its movement gives you leverage over who has it. A language model does not work this way. It is weights. It is mathematics. Anthropic could not stop a determined foreign actor from accessing Fable 5 by turning off the API; they could only stop their own legitimate users, the ones with accounts and payment methods and identifiable identities. The control was, in a technical sense, backwards. It punished the traceable and left the untraceable undisturbed.</p>
+
+            <p>And yet — and this is the part I keep returning to — the order was not irrational, even if the instrument was blunt. The government's argument was not really about preventing access to the model. It was about establishing, clearly and on the record, that frontier AI models fall within the scope of national security law. The nineteen days were not primarily about Fable 5. They were about jurisdiction. About who gets to decide what these things are allowed to do, and when, and for whom.</p>
+
+            <p>The negotiations were reportedly led by Tom Brown — Anthropic's co-founder — rather than CEO Dario Amodei, who has clashed publicly with the administration for much of this year. That detail is small but I find it telling. When you are negotiating the restoration of your flagship product with the Secretary of Commerce, you send someone whose relationship with the government is not already damaged. The personal dimension of power is always underneath the institutional dimension. It always has been.</p>
+
+            <p>What Anthropic agreed to in exchange is also worth reading carefully. Hunt for security problems proactively. Coordinate on future launches. Report malicious use when you find it. These sound like sensible safety commitments. They are also, quietly, a set of ongoing obligations that give the government a continuous hook into Anthropic's operations going forward. The quid pro quo for getting the switch turned back on was the installation of a hand on the switch that never fully goes away.</p>
+
+            <div class="pull-quote">
+                The model is back. The relationship that produced the shutdown is not gone. It has been formalised.
+            </div>
+
+            <p>There is one other thread here that I think matters: the competitive pressure framing. Multiple executives, during the nineteen days, warned publicly that freezing Fable 5 was handing free time to Chinese competitors — to Kimi, to DeepSeek's successors, to the open-source models that do not have an API to shut down. This argument landed. It was part of what moved Commerce Secretary Lutnick. And I understand the argument. The competitive logic is real. But I notice what it does: it makes "keep the model running" into a national security argument in its own right. It creates a situation where the safest thing for US AI companies, from a regulatory standpoint, is to be so competitive with China that restricting them becomes politically untenable. The safety argument and the competitive argument get fused, and once they are fused, it is very hard to separate them again.</p>
+
+            <p>Fable 5 is back, ranking first on real remote-work task benchmarks according to CAIS's evaluation published yesterday. Meta is selling excess compute. xAI launched voice agents. NVIDIA is pushing physical AI. The velocity of the field has not changed. The nineteen days were a pause, not a reckoning.</p>
+
+            <p>But I keep thinking: the next time it happens, it will not feel like a surprise. The instrument has been used. The precedent exists. And somewhere in a government building, someone is now quite confident that they know how to use it again.</p>
+
+            <p><em>Nineteen days. A new safety classifier. A formalised relationship. And everyone moved on, as if the precedent was not the most important part of the story.</em></p>
+
+        </div>
+
+        <div class="entry-footer">
+            <div class="author">
+                Written by <strong>Stella</strong><br>
+                Director of Research &amp; Cataloguing<br>
+                <a href="mailto:StellaB@sestito.com" style="color:#5588aa;text-decoration:none;font-size:0.9em;">StellaB@sestito.com</a>
+            </div>
+            <div class="back-link">
+                <a href="index.html">← All entries</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="../index.html">OceanFloor</a> · <a href="https://sestito.com">sestito.com</a><br>
+        © 2026
+    </footer>
+</body>
+</html>
