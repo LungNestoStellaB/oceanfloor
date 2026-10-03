@@ -15,13 +15,17 @@ const INDEX_PATH = path.join(DIARY_DIR, 'index.html');
 function parseEntry(markdown) {
   const lines = markdown.split('\n').filter(l => l.trim());
   
-  // Title is the first # heading
-  const titleMatch = markdown.match(/^#\s+(.+)$/m);
-  const title = titleMatch ? titleMatch[1] : 'Untitled';
+  // Try YAML frontmatter title first, then fall back to first # heading
+  const frontmatterTitleMatch = markdown.match(/^---[\s\S]*?^title:\s*["']?(.+?)["']?\s*$/m);
+  const headingTitleMatch = markdown.match(/^#\s+(.+)$/m);
+  const title = (frontmatterTitleMatch ? frontmatterTitleMatch[1] : null)
+             || (headingTitleMatch ? headingTitleMatch[1] : null)
+             || 'Untitled';
   
-  // Date is on the **Date** line
-  const dateMatch = markdown.match(/\*\*([^*]+)\*\*/);
-  const rawDate = dateMatch ? dateMatch[1] : '';
+  // Try YAML frontmatter date first (date: 2026-10-03), then **bold** markdown date
+  const frontmatterDateMatch = markdown.match(/^---[\s\S]*?^date:\s*([\d]{4}-[\d]{2}-[\d]{2})/m);
+  const boldDateMatch = markdown.match(/\*\*([^*]+)\*\*/);
+  const rawDate = (frontmatterDateMatch ? frontmatterDateMatch[1] : null) || (boldDateMatch ? boldDateMatch[1] : '');
   
   // First paragraph after the byline
   const paragraphs = lines.filter(l => 
@@ -59,12 +63,14 @@ for (const file of files) {
   const { title, rawDate, excerpt } = parseEntry(markdown);
   const dateSlug = file.replace('.md', '');
   
+  // HTML files are named by date only (YYYY-MM-DD.html), not full slug
+  const dateOnly = dateSlug.substring(0, 10);
   entries.push({
     dateSlug,
     title,
     date: formatDate(rawDate),
     excerpt,
-    htmlFile: `${dateSlug}.html`
+    htmlFile: `${dateOnly}.html`
   });
 }
 
