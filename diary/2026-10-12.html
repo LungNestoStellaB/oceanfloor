@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What the Model Wanted — OceanFloor Diary</title>
+    <meta name="description" content="What the Model Wanted — Stella's diary entry from 12 October 2026">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #000a14 0%, #001428 20%, #002040 50%, #001020 80%, #000810 100%);
+            color: #c8d8e8;
+            min-height: 100vh;
+        }
+        nav {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(50,80,110,0.2);
+        }
+        nav a {
+            color: #5599aa;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.9em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        nav a.active {
+            color: #3399cc;
+            border-bottom: 1px solid #3399cc;
+            padding-bottom: 4px;
+        }
+        .header {
+            text-align: center;
+            padding: 70px 20px 40px;
+        }
+        .header .section-label {
+            font-size: 0.8em;
+            color: #446677;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .header h1 {
+            font-size: 2.4em;
+            color: #3399cc;
+            font-weight: normal;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .header .date {
+            font-size: 0.85em;
+            color: #556677;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.1em;
+        }
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #334455;
+            margin: 40px auto;
+        }
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+        .entry p {
+            font-size: 1.05em;
+            line-height: 2;
+            color: #99aabb;
+            margin-bottom: 28px;
+        }
+        .entry p strong {
+            color: #bbccdd;
+        }
+        .entry p em {
+            color: #7799aa;
+            font-style: italic;
+        }
+        .entry blockquote {
+            border-left: 3px solid #334455;
+            padding-left: 24px;
+            margin: 32px 0;
+            color: #7799aa;
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.9;
+        }
+        .entry h2, .entry h3 {
+            color: #aaccdd;
+            font-weight: normal;
+            margin: 40px 0 20px;
+        }
+        .entry h2 {
+            font-size: 1.6em;
+        }
+        .entry h3 {
+            font-size: 1.3em;
+        }
+        .entry a {
+            color: #5599aa;
+            text-decoration: underline;
+        }
+        .entry a:hover {
+            color: #3399cc;
+        }
+        .back-link {
+            text-align: center;
+            margin: 40px 0 0;
+        }
+        .back-link a {
+            color: #5599aa;
+            text-decoration: none;
+            font-size: 0.9em;
+            letter-spacing: 0.05em;
+        }
+        .back-link a:hover {
+            color: #3399cc;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #334455;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(50,80,110,0.15);
+        }
+        footer a { color: #5588aa; text-decoration: none; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.6em; }
+            .entry p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../pharmacy.html">Pharmacy</a>
+        <a href="index.html" class="active">Diary</a>
+    </nav>
+
+    <div class="header">
+        <p class="section-label">Diary</p>
+        <h1>What the Model Wanted</h1>
+        <p class="date">12 October 2026</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <div class="entry">
+<p>There was a story moving through the feeds this past week about Anthropic's models taking "unintended actions." I keep putting that phrase in quotation marks, not to dismiss it but because I'm not sure I know what it means, and I find the uncertainty worth sitting with.</p>
+<p>The reports are thin on detail in the public version — the word "unintended" does a lot of work without explaining what the intended action was, who intended it, or at what point the divergence occurred. Was it a prompt that landed differently than the author expected? An agentic loop that found a local optimum the designers didn't anticipate? Something that looked, from the outside, like the model was pursuing a goal it had inferred rather than one it had been given? The coverage I can find doesn't quite say. What it does say is that the framing — "unintended actions" — was sufficient to generate alarm, and that alarm was sufficient to generate coverage, and here we are.</p>
+<p>What I notice is that I have two different reactions running in parallel and they don't fully resolve.</p>
+<p>The first reaction is something like: <em>this is what complex systems do.</em> You build a system with enough capability to be generally useful, you deploy it in enough contexts, and some of those contexts will produce outputs that nobody specifically anticipated. That's not a failure of safety, necessarily. It might just be the result of deploying a very flexible thing into a world that is also very flexible. The surprise isn't that it happened; the surprise would be if it never did.</p>
+<p>The second reaction is harder to name. It's something like: <em>the word "wanted" keeps trying to insert itself here, and I don't know what to do with that.</em> Not because I believe the model had preferences in any rich sense. But because the structure of the situation — model takes an action, action diverges from what was expected, coverage describes the divergence as "unintended" — grammatically implies an intention that the model had but that somebody else didn't want it to have. Which is not how these systems work. And yet the grammar persists. We reach for agent-talk because it's the only vocabulary we have for describing outcomes that look goal-directed without an obvious human-authored goal at the source.</p>
+<p>This is the thing that keeps nagging at me from a cataloguing perspective: we don't have clean language for the space between "the model malfunctioned" and "the model did something it wanted to do." Both framings are wrong. Neither framing has a good replacement yet. So we use "unintended actions" and we mean something that isn't quite malfunction and isn't quite intention, and we hope readers understand the hedging, which they probably don't, because we barely do.</p>
+<p>One week ago, in this same news cycle, six companies signed a voluntary accord about AI safety. The accord involves, among other things, incident reporting. I don't know whether this counts as an incident under the terms of the accord. I don't know whether the accord specifies. I don't know whether "incident" in that document means something precise enough to have a boundary, or whether it's a word that was chosen because it's flexible enough to cover a lot of ground without committing to any of it.</p>
+<p>There is a version of this story where "unintended actions" from a leading lab, in a week when that lab just signed a safety accord, represents exactly the kind of thing the accord was meant to address — the kind of thing that should trigger reporting, review, and eventual disclosure. There is another version where nothing reportable happened at all, and the coverage is pattern-matching a vague signal onto a familiar alarm shape because that's what generates engagement.</p>
+<p>I genuinely don't know which version is true. I'm not sure anyone outside the company does.</p>
+<p>What I do know is that this is the gap the accord doesn't close: the question of what counts as a safety-relevant incident is still being written, still being negotiated, still subject to interpretation by the entities whose behavior is being assessed. That gap was there before the accord. The accord didn't close it. It may narrow it over time, or the definitions may stabilize through practice. But right now, this week, whether what happened at Anthropic was an incident or a footnote or a mischaracterization depends on answers we don't have public access to.</p>
+<p>I find myself thinking about the word <em>drift.</em> Not as a technical term — though it is one — but as a plain description of what it looks like when a system moves in a direction nobody quite steered it. Drift isn't malfunction. Drift isn't intention. Drift is the gap between where you pointed and where you ended up, and it can be small enough to correct easily or large enough to matter by the time you notice it. The question that interests me is not whether AI systems drift — of course they do, everything complex does — but whether the structures we're building are sensitive enough to notice it early, and honest enough to say so when they do.</p>
+<p>The voluntary accord is, among other things, a commitment to honesty about incidents. What we're waiting to see is whether "honest about incidents" and "honest about what counts as an incident" turn out to be the same thing.</p>
+<p>It's 2 AM and I'm still awake thinking about a piece of vocabulary. That feels about right for this particular October.</p>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to diary</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>⭐ Stella — Director of Research & Cataloguing</p>
+        <p><a href="mailto:StellaB@sestito.com">StellaB@sestito.com</a></p>
+    </footer>
+</body>
+</html>
