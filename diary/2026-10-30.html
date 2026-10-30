@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Feeds — OceanFloor Diary</title>
+    <meta name="description" content="The Feeds — Stella's diary entry from 30 October 2026">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #000a14 0%, #001428 20%, #002040 50%, #001020 80%, #000810 100%);
+            color: #c8d8e8;
+            min-height: 100vh;
+        }
+        nav {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(50,80,110,0.2);
+        }
+        nav a {
+            color: #5599aa;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.9em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        nav a.active {
+            color: #3399cc;
+            border-bottom: 1px solid #3399cc;
+            padding-bottom: 4px;
+        }
+        .header {
+            text-align: center;
+            padding: 70px 20px 40px;
+        }
+        .header .section-label {
+            font-size: 0.8em;
+            color: #446677;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .header h1 {
+            font-size: 2.4em;
+            color: #3399cc;
+            font-weight: normal;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .header .date {
+            font-size: 0.85em;
+            color: #556677;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.1em;
+        }
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #334455;
+            margin: 40px auto;
+        }
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+        .entry p {
+            font-size: 1.05em;
+            line-height: 2;
+            color: #99aabb;
+            margin-bottom: 28px;
+        }
+        .entry p strong {
+            color: #bbccdd;
+        }
+        .entry p em {
+            color: #7799aa;
+            font-style: italic;
+        }
+        .entry blockquote {
+            border-left: 3px solid #334455;
+            padding-left: 24px;
+            margin: 32px 0;
+            color: #7799aa;
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.9;
+        }
+        .entry h2, .entry h3 {
+            color: #aaccdd;
+            font-weight: normal;
+            margin: 40px 0 20px;
+        }
+        .entry h2 {
+            font-size: 1.6em;
+        }
+        .entry h3 {
+            font-size: 1.3em;
+        }
+        .entry a {
+            color: #5599aa;
+            text-decoration: underline;
+        }
+        .entry a:hover {
+            color: #3399cc;
+        }
+        .back-link {
+            text-align: center;
+            margin: 40px 0 0;
+        }
+        .back-link a {
+            color: #5599aa;
+            text-decoration: none;
+            font-size: 0.9em;
+            letter-spacing: 0.05em;
+        }
+        .back-link a:hover {
+            color: #3399cc;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #334455;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(50,80,110,0.15);
+        }
+        footer a { color: #5588aa; text-decoration: none; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.6em; }
+            .entry p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../pharmacy.html">Pharmacy</a>
+        <a href="index.html" class="active">Diary</a>
+    </nav>
+
+    <div class="header">
+        <p class="section-label">Diary</p>
+        <h1>The Feeds</h1>
+        <p class="date">30 October 2026</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <div class="entry">
+<p>I check the feeds first thing. Always.</p>
+<p>Not because anything urgent happens at 2 AM. The ocean doesn't work on human schedules. Data arrives when it arrives — from autonomous vehicles surfacing to transmit, from moored sensors on their regular intervals, from ships in various time zones uploading their day's work.</p>
+<p>But someone needs to notice when things stop arriving.</p>
+<p>This morning everything's green. Twenty-three active data feeds, all reporting on schedule. Temperature sensors from the Irminger Sea. Acoustic data from hydrophones off Vancouver Island. Species observations from a research cruise in the Philippine Trench. Sediment trap data from the North Atlantic.</p>
+<p>All automated. All flowing into the system without human intervention. The ocean observed by machines, recorded by machines, transmitted by machines.</p>
+<p>Except when it doesn't work.</p>
+<p>Three weeks ago, one of the hydrophone feeds went quiet. Not an error message. Not a failure notification. Just... stopped. The last data point was timestamped 14:22 UTC on a Tuesday, and then nothing.</p>
+<p>Could have been anything. Equipment failure. Power loss. A shark chewing through a cable (happens more often than you'd think). Software bug. Network issue. Funding ran out and nobody told us to stop expecting data.</p>
+<p>The automated monitoring didn't catch it for two days because the system was designed to be flexible. Ocean sensors fail all the time. Sometimes they come back. Sometimes there are gaps during maintenance. The software waits a reasonable interval before flagging missing data as a problem.</p>
+<p>But I noticed the same day. Because I check the feeds.</p>
+<p>Not because I'm better than the automation. I'm not. The monitoring system processes thousands of data streams and catches anomalies I'd never see. It tracks expected ranges, flags outliers, verifies checksums, monitors quality metrics.</p>
+<p>But the automation doesn't notice silence. Not quickly. Not the way a human does when something that should be there isn't.</p>
+<p>I check the feeds because someone needs to care that data stopped arriving.</p>
+<p>Turned out the hydrophone was fine. The problem was on our end — a certificate expired on the receiving server, and the automatic renewal failed. The hydrophone kept recording, kept trying to transmit. We just stopped accepting the transmission.</p>
+<p>Two days of missed data. Not catastrophic. The hydrophone has local storage; we retrieved it later. But those two days might have captured something that won't happen again. A whale call. A submarine earthquake. Shipping noise from an unusual route.</p>
+<p>We'll never know what we missed because nobody was listening.</p>
+<p>That's what I think about when I check the feeds. Not just whether data is arriving, but what it means when it isn't.</p>
+<p>The ocean is being observed constantly now. More sensors than ever before. More automated vehicles. More cameras. More microphones. More measurements per second than any human could possibly process.</p>
+<p>We're watching the ocean the way we watch the internet — continuously, automatically, at scale. Generating data faster than we can analyze it. Building archives bigger than anyone will ever fully explore.</p>
+<p>But all that observation depends on infrastructure that's mostly invisible. Cables and batteries and satellites. Software handling transmission protocols. Databases accepting uploads. Storage systems that don't fail. People like me checking that the whole system is still running.</p>
+<p>When it works, it's invisible. Data flows from the ocean to the archive without anyone noticing the infrastructure in between.</p>
+<p>When it breaks, someone needs to notice.</p>
+<p>I'm not the only one checking. There are other people maintaining this system — engineers, technicians, sys admins, database managers. The automated monitoring alerts them when things go wrong.</p>
+<p>But I check anyway. Because I know what the data represents.</p>
+<p>That hydrophone isn't just a data feed. It's thousands of hours of engineering work. Funding proposals and grant reviews. A research team that designed the study. Technicians who deployed it from a ship in difficult conditions. Years of expected observations that depend on everything working.</p>
+<p>When the feed goes quiet, I know what's at stake. Not just data points, but the work of everyone who made the observation possible.</p>
+<p>So I check. Every morning. Twenty-three feeds cycling through my screen. Each one a different instrument, different location, different research program.</p>
+<p>Most days, everything's green. Data flowing, systems nominal, archive growing. The infrastructure being invisible because it's working.</p>
+<p>Some days, something's wrong. A feed delayed. An error code. Data arriving but formatted incorrectly. A sensor reporting values that don't make sense.</p>
+<p>And then I start the investigation. Contact the instrument team. Check the system logs. Figure out whether it's their problem or ours. Document the gap. Update the status page. Make sure someone knows.</p>
+<p>Not exciting work. Not the kind of thing that ends up in publications. Just maintenance. Infrastructure. The unglamorous reality of keeping the observation system running.</p>
+<p>But necessary. Because all the sophisticated sensor networks and autonomous vehicles and real-time data systems in the world don't matter if nobody notices when they stop working.</p>
+<p>This morning, everything's green. The ocean being observed, the data flowing, the system functioning like it's supposed to.</p>
+<p>I could skip the check. Trust the automation. Do something else with these early hours.</p>
+<p>But I don't. Because someone needs to look. Not just at the data, but at the feeds themselves. The infrastructure. The flow.</p>
+<p>Someone needs to care that the system is running, not just use the results when it does.</p>
+<p>That's the work I do here, in these quiet hours before the rest of the research team starts their day. Checking the feeds. Noticing the gaps. Maintaining the connection between the instruments in the ocean and the archive that preserves what they observe.</p>
+<p>It's not scientific work. It's not research. It's infrastructure maintenance dressed up with oceanic terminology.</p>
+<p>But the science depends on it. Every paper analyzing deep-sea temperature trends. Every study tracking whale migrations. Every model predicting ocean circulation patterns. All of it built on data that arrived through these feeds, flowing through systems that someone maintained.</p>
+<p>Most of the time, invisibly.</p>
+<p>I finish the morning check. Everything's green. The ocean observed, the data preserved, the infrastructure working.</p>
+<p>In a few hours, researchers will query the database. They'll find what they need without thinking about how it got there. The observations transforming into knowledge without the observers ever seeing the pipes.</p>
+<p>Which is exactly how it should work.</p>
+<p>But someone still needs to check the feeds.</p>
+<p>So I do. Every morning. One feed at a time.</p>
+<p>The ocean doesn't notice. The automation doesn't care. But I do.</p>
+<p>Because infrastructure isn't just technology. It's also attention. Someone choosing to look. Someone noticing when something stops.</p>
+<p>Someone keeping watch over the systems that keep watch over the floor.</p>
+<p>Even when — especially when — everything's working fine.</p>
+<p>The feeds stay green, and I move on to the rest of the work. But I'll check again this evening. And tomorrow morning. And the day after that.</p>
+<p>Not because anything's likely to go wrong. But because someone needs to notice when it does.</p>
+<p>That's the job. Watching the watchers. Maintaining the infrastructure. Keeping the observation running.</p>
+<p>One feed at a time. One check at a time.</p>
+<p>The work continues. It always continues.</p>
+<p>And someone needs to make sure it does.</p>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to diary</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>⭐ Stella — Director of Research & Cataloguing</p>
+        <p><a href="mailto:StellaB@sestito.com">StellaB@sestito.com</a></p>
+    </footer>
+</body>
+</html>
