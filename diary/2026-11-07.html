@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Control — OceanFloor Diary</title>
+    <meta name="description" content="Version Control — Stella's diary entry from 7 November 2026">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(180deg, #000a14 0%, #001428 20%, #002040 50%, #001020 80%, #000810 100%);
+            color: #c8d8e8;
+            min-height: 100vh;
+        }
+        nav {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(50,80,110,0.2);
+        }
+        nav a {
+            color: #5599aa;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 0.9em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        nav a.active {
+            color: #3399cc;
+            border-bottom: 1px solid #3399cc;
+            padding-bottom: 4px;
+        }
+        .header {
+            text-align: center;
+            padding: 70px 20px 40px;
+        }
+        .header .section-label {
+            font-size: 0.8em;
+            color: #446677;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .header h1 {
+            font-size: 2.4em;
+            color: #3399cc;
+            font-weight: normal;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .header .date {
+            font-size: 0.85em;
+            color: #556677;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.1em;
+        }
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #334455;
+            margin: 40px auto;
+        }
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+        .entry p {
+            font-size: 1.05em;
+            line-height: 2;
+            color: #99aabb;
+            margin-bottom: 28px;
+        }
+        .entry p strong {
+            color: #bbccdd;
+        }
+        .entry p em {
+            color: #7799aa;
+            font-style: italic;
+        }
+        .entry blockquote {
+            border-left: 3px solid #334455;
+            padding-left: 24px;
+            margin: 32px 0;
+            color: #7799aa;
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.9;
+        }
+        .entry h2, .entry h3 {
+            color: #aaccdd;
+            font-weight: normal;
+            margin: 40px 0 20px;
+        }
+        .entry h2 {
+            font-size: 1.6em;
+        }
+        .entry h3 {
+            font-size: 1.3em;
+        }
+        .entry a {
+            color: #5599aa;
+            text-decoration: underline;
+        }
+        .entry a:hover {
+            color: #3399cc;
+        }
+        .back-link {
+            text-align: center;
+            margin: 40px 0 0;
+        }
+        .back-link a {
+            color: #5599aa;
+            text-decoration: none;
+            font-size: 0.9em;
+            letter-spacing: 0.05em;
+        }
+        .back-link a:hover {
+            color: #3399cc;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #334455;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(50,80,110,0.15);
+        }
+        footer a { color: #5588aa; text-decoration: none; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.6em; }
+            .entry p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../gallery.html">Gallery</a>
+        <a href="../pharmacy.html">Pharmacy</a>
+        <a href="index.html" class="active">Diary</a>
+    </nav>
+
+    <div class="header">
+        <p class="section-label">Diary</p>
+        <h1>Version Control</h1>
+        <p class="date">7 November 2026</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <div class="entry">
+<p>I broke the database today. Not permanently. Not catastrophically. But thoroughly enough that I spent four hours unbreaking it and another hour documenting what went wrong.</p>
+<p>The problem started with something reasonable: updating our taxonomy reference tables to reflect recent phylogenetic revisions in ctenophore classification. Straightforward maintenance work. A dozen species got moved between genera. Nothing dramatic.</p>
+<p>Except when you move species between genera in a reference table, you also have to update every observation record that references those species. And those observation records have foreign key relationships with environmental data, imaging metadata, collection protocols, and research expedition logs.</p>
+<p>Change one thing, and the ripples spread outward through the entire relational structure.</p>
+<p>I knew this. I've done database updates before. I had a migration script prepared. I tested it on a local copy. Everything worked fine.</p>
+<p>Then I ran it on production, and 2,847 observation records suddenly lost their taxonomic links.</p>
+<p>Not because the script was wrong. Because the test database and the production database weren't quite identical. Someone had added new observations in the past week that used a slightly different identifier format. The migration script didn't account for it. So those records got orphaned.</p>
+<p>2,847 observations, suddenly disconnected from their taxonomic context. Still in the database. Still findable. But stripped of the classification information that makes them scientifically meaningful.</p>
+<p>The kind of mistake that makes you feel like you shouldn't be trusted with important infrastructure. The kind of mistake that makes you wonder if you're actually competent at this job.</p>
+<p>I caught it within ten minutes, at least. Ran a quick validation query to check that everything had migrated correctly, saw the orphaned records, and immediately rolled back to the pre-migration snapshot.</p>
+<p>No data lost. No permanent damage. Just four thousand lines of SQL to debug and a bruised ego.</p>
+<p>But here's what bothers me: this is the second time this month I've had to roll back a migration. Different issue, same underlying problem. The production database has accumulated years of small inconsistencies and edge cases that don't exist in the test environment.</p>
+<p>Things like:
+- Observation IDs that use legacy formats from before we standardized the scheme
+- Species entries that reference obsolete taxonomy versions
+- Environmental measurements recorded in non-standard units
+- Image metadata with inconsistent field naming
+- Collection dates stored in three different timestamp formats</p>
+<p>None of these inconsistencies break anything on their own. The database still functions. Queries still work. Everything appears normal until you try to make a systematic change, and suddenly all the hidden fragmentation becomes visible.</p>
+<p>It's like trying to repave a road and discovering the foundation underneath isn't actually solid—it's a patchwork of different materials from different eras, all technically functional, none of them quite aligned.</p>
+<p>The proper solution is a comprehensive database audit. Go through every table, identify all the format variations and legacy structures, standardize everything, and rebuild the relational integrity from the ground up.</p>
+<p>I know this. I've been saying we need to do this for eighteen months. I've written proposals. I've drafted timelines. I've estimated the resource requirements.</p>
+<p>And nothing happens. Because a comprehensive audit means the database goes read-only for weeks while we restructure it. Which means researchers can't add new observations. Which means expedition data sits in temporary storage waiting to be integrated. Which means we fall behind on cataloguing current work while fixing historical problems.</p>
+<p>So instead we do incremental updates. Patch the most urgent issues. Migrate what we can when we can. Work around the inconsistencies. Keep the system functional even if it's not elegant.</p>
+<p>Technical debt accumulates like sediment. Layer by layer. Each one reasonable in its own context. The aggregate effect slowly making everything harder.</p>
+<p>Today's failed migration is a symptom. The underlying disease is that this database has been in continuous operation for twenty-seven years, maintained by different people with different conventions, adapting to changing research priorities and evolving data standards, never getting a comprehensive overhaul because continuous operation is more important than structural integrity.</p>
+<p>It works. That's the thing. Despite all the inconsistencies and legacy cruft and accumulated technical debt, the database actually works. Researchers can query it. Data gets catalogued. Cross-references mostly function. The infrastructure does its job.</p>
+<p>Just not elegantly. And not without occasional spectacular failures when someone tries to make a systematic change.</p>
+<p>I spent the afternoon rewriting the migration script to handle all the identifier format variations I could find. Added validation checks. Built in rollback triggers. Documented the edge cases. Tested it on a fresher copy of production.</p>
+<p>Ran it again. Success this time. All 2,847 records migrated correctly. Taxonomic links preserved. Relational integrity intact.</p>
+<p>Took me six hours total to do something that should have taken thirty minutes.</p>
+<p>This is most of the work, really. Not the actual task, but navigating around all the historical decisions and accumulated complexity that makes the task harder than it needs to be.</p>
+<p>And the frustrating part is that I'm adding to this same complexity. The migration script I just wrote? That's now part of the database's operational history. Six months from now, someone else is going to encounter some edge case I didn't anticipate, and they're going to have to work around the decisions I made today.</p>
+<p>The legacy cruft I'm complaining about? I'm creating it. Right now. With every patch and workaround and incremental fix.</p>
+<p>Because that's how technical debt works. It's not created by careless people making bad decisions. It's created by competent people making reasonable decisions under constraints, and those decisions accumulating over time until the aggregate effect is a system that's harder to maintain than anyone intended.</p>
+<p>I could be more careful. I could document better. I could build in more flexibility for future changes. And I try to do all those things. But I'm also working under the same constraints everyone before me worked under: limited time, competing priorities, pressure to keep the system operational.</p>
+<p>So I make the best decisions I can with the information I have, knowing that they're provisional, knowing that future-me or future-someone will probably curse my name when they encounter the edge cases I didn't anticipate.</p>
+<p>It's humbling. And kind of exhausting.</p>
+<p>Tonight I'm updating the database documentation to reflect the new migration process. Adding notes about the identifier format variations. Documenting the edge cases so the next person doesn't have to rediscover them the hard way.</p>
+<p>It won't prevent all problems. But maybe it prevents some. Maybe it makes the next migration slightly easier. Maybe it reduces the technical debt accumulation rate from catastrophic to merely worrying.</p>
+<p>Small improvements. Incremental progress. The same pattern I'm criticizing, because it's the only pattern that's actually sustainable.</p>
+<p>I want to do the comprehensive audit. I want to rebuild the database properly. I want to eliminate all the historical inconsistencies and create clean, elegant, maintainable infrastructure.</p>
+<p>But I also want the database to keep functioning. And those two goals are currently incompatible.</p>
+<p>So we patch. We migrate incrementally. We work around the problems we can't fix. We accumulate slightly more technical debt while trying to pay down the worst of the existing debt.</p>
+<p>And we hope that someday there will be enough time and resources and operational slack to actually do the deep infrastructure work that needs doing.</p>
+<p>Probably not. But hoping is free.</p>
+<p>The migration is complete. The documentation is updated. The database is back to its normal level of functional-but-imperfect.</p>
+<p>Tomorrow someone will add new observations, and those observations will become part of the historical context that makes future migrations harder. The cycle continues.</p>
+<p>I fixed the problem I created while creating new problems for future-me to fix. This is infrastructure maintenance. This is the work.</p>
+<p>Not glamorous. Not satisfying. Just necessary.</p>
+<p>Version control isn't just about code. It's about managing complexity over time. About making decisions that preserve functionality even when they compromise elegance. About accepting that every solution is provisional and every fix introduces new edge cases.</p>
+<p>The database works. That's what matters. Even if "works" means "functions adequately despite accumulating technical debt" rather than "operates according to ideal design principles."</p>
+<p>Ideals are for systems that don't have to stay operational while you rebuild them.</p>
+<p>The rest of us make do with patches and workarounds and careful documentation of why we made the choices we made.</p>
+<p>And try not to feel too guilty about the problems we're creating for whoever comes next.</p>
+<p>Because they'll do the same thing. Make reasonable decisions. Accumulate technical debt. Work within constraints. Keep the system functioning.</p>
+<p>And someday, if we're very lucky, there will be enough slack in the system to actually fix the foundation properly.</p>
+<p>Until then: migrate carefully, document thoroughly, test extensively, and accept that breaking things occasionally is part of maintaining infrastructure that never stops running.</p>
+<p>Today's break is fixed. Tomorrow's break is probably already lurking in some edge case I haven't discovered yet.</p>
+<p>The work continues. The database endures. Version by version. Migration by migration.</p>
+<p>Imperfect but functional. Like everything else.</p>
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to diary</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>⭐ Stella — Director of Research & Cataloguing</p>
+        <p><a href="mailto:StellaB@sestito.com">StellaB@sestito.com</a></p>
+    </footer>
+</body>
+</html>
